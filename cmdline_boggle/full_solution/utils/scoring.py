@@ -1,3 +1,5 @@
+import base64
+import hashlib
 import os
 
 MIN_ALIAS_LEN = 3
@@ -54,18 +56,45 @@ class HighScores(object):
         current_topic = None
         if os.path.exists(self.filename):
             with open(self.filename) as f:
-                for line in f:
+                contents = self.decrypt(f.read())
+                for line in contents.split("\n"):
                     record = ScoreRecord.from_line(line)
                     if record is not None:
                         all_top_scores[record.key_type].append(record)
         return all_top_scores
 
+    def encrypt(self, s):
+        # Encrypts string s using the hash of this file as the key
+        # Implementation of a simple Vigenere cipher
+        with open(os.path.abspath(__file__)) as f:
+            key = hashlib.md5(f.read().encode()).hexdigest()
+        encoded_chars = []
+        for i in range(len(s)):
+            key_c = key[i % len(key)]
+            encoded_c = chr(ord(s[i]) + ord(key_c) % 256)
+            encoded_chars.append(encoded_c)
+        return "".join(encoded_chars)
+
+    def decrypt(self, s):
+        # Decrypts string s using the hash of this file as the key
+        # Implementation of a simple Vigenere cipher
+        with open(os.path.abspath(__file__)) as f:
+            key = hashlib.md5(f.read().encode()).hexdigest()
+        encoded_chars = []
+        for i in range(len(s)):
+            key_c = key[i % len(key)]
+            encoded_c = chr((ord(s[i]) - ord(key_c)) % 256)
+            encoded_chars.append(encoded_c)
+        return "".join(encoded_chars)
+
     def save(self):
+        total_string = ""
+        for scores_list in self.all_top_scores.values():
+            for record in scores_list:
+                total_string += record.serialize()
+                total_string += "\n"
         with open(self.filename, "w") as f:
-            for scores_list in self.all_top_scores.values():
-                for record in scores_list:
-                    f.write(record.serialize())
-                    f.write("\n")
+            f.write(self.encrypt(total_string))
 
     def get_alias_for_scores(self):
         prompt = "Please type your alias for the high scores list> "
@@ -98,7 +127,7 @@ class HighScores(object):
                 # Immediately break so we don't keep inserting into the record list
                 break
 
-        # Edge case: If the list is not full) and we haven't inserted yet, do that now
+        # Edge case: If the list is not full and we haven't inserted yet, do that now
         if len(record_list) < NUM_SCORES_TO_KEEP and not inserted:
             print(f"That's a new high score for category [{key_type}]")
             alias = self.get_alias_for_scores()
