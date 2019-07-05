@@ -8,7 +8,10 @@ though you're also free to follow my recommended steps.
 Instructions:
 1. Open utils/scoring.py and complete the missing method functionality
     a. Knowledge used:
-        1.
+        1. Object fields
+        2. String manipulation
+        3. String parsing
+        4. Files
 
 2. Open utils/boggle_game.py and fix the mionr changes needed there
     a. Knowledge used:

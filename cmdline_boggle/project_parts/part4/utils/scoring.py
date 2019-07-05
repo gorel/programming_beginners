@@ -10,38 +10,23 @@ TOP_WORD_KEY = "TOP WORD"
 class ScoreRecord(object):
     NUM_FIELDS = 5
     def __init__(self, key_type, alias, game_board_str, score, extra_info=""):
-        self.key_type = key_type
-        self.alias = alias
-        self.game_board_str = game_board_str
-        self.score = str(score)
-        self.extra_info = str(extra_info)
+        # TODO: Store these variables in `self` as type `str`
+        pass
 
     def serialize(self):
-        return "|".join([
-            self.key_type,
-            self.alias,
-            self.game_board_str,
-            self.score,
-            self.extra_info,
-        ])
+        # TODO: Come up with a scheme for serializing this data to a file
+        pass
 
     @classmethod
     def from_line(cls, line):
-        line = line.strip()
-        if "|" not in line:
-            return None
-        fields = line.split("|")
-        if len(fields) != cls.NUM_FIELDS:
-            return None
-        return cls(*fields)
+        # TODO: Given a serialized ScoreRecord (a string line), return a new ScoreRecord object
+        pass
 
     @staticmethod
     def serialize_game_board(game_board):
-        serialized = ""
-        for row in game_board:
-            for character in row:
-                serialized += character
-        return serialized
+        # TODO: Return a serialized string for the game board (do NOT use newline in your serialization)
+        # In other words, given a 2d game board, how might you represent it on one line?
+        pass
 
 
 class HighScores(object):
@@ -61,11 +46,8 @@ class HighScores(object):
         return all_top_scores
 
     def save(self):
-        with open(self.filename, "w") as f:
-            for scores_list in self.all_top_scores.values():
-                for record in scores_list:
-                    f.write(record.serialize())
-                    f.write("\n")
+        # TODO: Save this HighScores object to file
+        pass
 
     def get_alias_for_scores(self):
         prompt = "Please type your alias for the high scores list> "
@@ -98,7 +80,7 @@ class HighScores(object):
                 # Immediately break so we don't keep inserting into the record list
                 break
 
-        # Edge case: If the list is not full) and we haven't inserted yet, do that now
+        # Edge case: If the list is not full and we haven't inserted yet, do that now
         if len(record_list) < NUM_SCORES_TO_KEEP and not inserted:
             print(f"That's a new high score for category [{key_type}]")
             alias = self.get_alias_for_scores()
@@ -115,22 +97,9 @@ class HighScores(object):
             self.save()
 
     def print_records(self):
+        # TODO: Print the high scores
         # Start with overall, then round, then word
-        print("=================")
-        print("|| HIGH SCORES ||")
-        print("=================")
-
-        print("\nOVERALL")
-        for record in self.all_top_scores[TOP_OVERALL_KEY]:
-            print(f"  {record.alias}: {record.score}")
-
-        print("\nSINGLE ROUND")
-        for record in self.all_top_scores[TOP_ROUND_KEY]:
-            print(f"  {record.alias}: {record.score}")
-
-        print("\nSINGLE WORD")
-        for record in self.all_top_scores[TOP_WORD_KEY]:
-            print(f"  {record.alias}: {record.score} (word = {record.extra_info})")
+        pass
 
 class DummyHighScores(HighScores):
     def __init__(self):

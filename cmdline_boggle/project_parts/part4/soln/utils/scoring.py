@@ -98,7 +98,7 @@ class HighScores(object):
                 # Immediately break so we don't keep inserting into the record list
                 break
 
-        # Edge case: If the list is not full) and we haven't inserted yet, do that now
+        # Edge case: If the list is not full and we haven't inserted yet, do that now
         if len(record_list) < NUM_SCORES_TO_KEEP and not inserted:
             print(f"That's a new high score for category [{key_type}]")
             alias = self.get_alias_for_scores()
