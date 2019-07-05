@@ -1,0 +1,27 @@
+# Part 3 objectives:
+In this objective, you will learn about the argparse library.
+Argparse is useful for askng for a bunch of configuration options up-front before a program begins.
+For a commandline program, this is similar to a "settings menu" in a video game.
+We make the user give us a lot of information up front, but then the game never has to pause the fun later.
+
+At the end of this week's work, our game will have a lot of clean-up done to use argparse.
+This isn't the coolest feature-rich update, but it's important for a maintainable program.
+
+# Instructions:
+1. Look at utils/cmdline_parser.py and implement the missing methods
+    a. Knowledge used:
+        1. The argparse library
+        2. Object method calls
+        3. Conditionals
+
+2. Look at utils/boggle_game.py and fix the minor TODOs
+    a. Knowledge used:
+        1. Inheritance
+        2. Object fields
+
+3. Open boggle.py and change the TODOs to utilize the cmdline_parser instead of input()
+    a. Knowledge used:
+        1. Object creation
+        2. Object fields
+        3. Object methods
+        4. Conditionals

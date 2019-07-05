@@ -1,0 +1,25 @@
+Part 4 objectives:
+
+This week, we're going to be implementing functionality for recording high scores.
+Specifically, we want to persist high scores across different game runs in a file
+There will be some freedom to implement these how you want,
+though you're also free to follow my recommended steps.
+
+Instructions:
+1. Open utils/scoring.py and complete the missing method functionality
+    a. Knowledge used:
+        1.
+
+2. Open utils/boggle_game.py and fix the mionr changes needed there
+    a. Knowledge used:
+        1. Object methods
+
+3. Now open utils/cmdline_parser.py and complete the changes needed there
+    a. Knowledge used:
+        1. The argparse library
+
+
+4. Next, open boggle.py and fix the TODOs to add support for high scores in games
+    a. Knowledge used:
+        1. Object methods
+        2. Conditionals

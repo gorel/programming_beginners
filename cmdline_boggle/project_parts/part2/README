@@ -1,0 +1,38 @@
+# Part 2 objectives:
+In this objective, you will learn about inheritance by extending the BasicBoggleBoard class.
+We will create WeightedBoggleBoard and StandardBoggleBoard that generate their boards differently.
+
+This will also include the difficult bonus problem of adding a solver.
+A solver allows the computer to tell the user the best possible words that could've been scored
+
+At the end of this week's work, our game will generate better boards and have a solver utility
+
+# Instructions:
+1. Look at utils/boggle_game.py and implement the missing methods from the new subclasses
+    a. Knowledge used:
+        1. Inheritance
+        2. Iteration (loops)
+        3. Object method calls
+        4. Iterators
+        5. The random module
+
+2. In boggle.py, add support for the user to choose the kind of boggle game to play
+    a. Knowledge used:
+        1. User input
+
+3. [BONUS] Look at utils/solver.py and implement the solver methods
+    a. Knowledge used:
+        1. Iteration (loops)
+        2. Sets (including set difference)
+        3. Conditionals
+        4. String manipulation
+        5. Object fields
+        6. 2-dimensional list traversal
+        7. Object method calls
+
+4. [BONUS] If you implemented the solver, add the functionality in boggle.py to use it
+    a. Knowledge used:
+        1. User input
+        2. Object creation
+        3. Object method calls
+        4. Sorting (and maybe lambda functions)

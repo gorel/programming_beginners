@@ -1,0 +1,33 @@
+# Part 1 objectives:
+In this first part of the project, we will create the core scaffolding to support a Boggle game.
+Although I've written the skeleton code already, none of the core game logic has been implemented.
+Your job will be to look at the code and figure out how to get it to run properly.
+
+At the end of this week's work, you will have a playable game!
+
+# Instructions:
+0. Create a directory for your boggle game
+
+1. [OPTIONAL] obtain a dictionary of acceptable words (on linux/mac: /usr/share/dict/words)
+    a. Copy that dictionary file into your boggle directory
+
+2. Look at utils/dictionary.py and implement the missing methods
+    a. Knowledge used:
+        1. Files
+        2. Iteration (loops)
+        3. Conditionals
+        4. Lists
+
+3. Look at utils/boggle_game.py and implement the missing methods
+    a. Knowledge used:
+        1. Iteration (loops)
+        2. Conditionals
+        3. String manipulation
+        4. "Magic methods"
+
+4. Finally, implement the functions in boggle.py to make your game playable
+    a. Knowledge used:
+        1. Object creation
+        2. Object method calls
+        3. String manipulation
+        4. User input
