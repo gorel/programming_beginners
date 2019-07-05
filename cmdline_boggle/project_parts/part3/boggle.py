@@ -1,6 +1,3 @@
-# Features to add:
-# Encryption of high scores file
-
 # TODO: Import the cmdline_parser module (and we don't need boggle_game anymore)
 from utils import boggle_game
 from utils import solver

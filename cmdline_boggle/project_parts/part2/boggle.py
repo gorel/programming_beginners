@@ -1,6 +1,3 @@
-# Features to add:
-# Encryption of high scores file
-
 from utils import boggle_game
 # TODO: Import the solver module here
 from utils import timed_input

@@ -1,6 +1,3 @@
-# Features to add:
-# Encryption of high scores file
-
 from utils import cmdline_parser
 # TODO: Import the scoring module
 from utils import solver
